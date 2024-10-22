@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: "MeetUp - Let's connect",
-  description: "Connect and collaborate effortlessly with our seamless video meeting app!",
+  title: "Virtual Verse: Our Virtual Collaboration Hub",
+  description: "Let's connect and collaborate effortlessly with our seamless video meeting app!",
 };
 
 export default function RootLayout({
@@ -25,11 +15,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-dark-2 text-white antialiased`}
+      <ClerkProvider 
+      appearance={{
+        layout:{
+          logoImageUrl:"/images/logo.png",
+          socialButtonsVariant: "iconButton"
+        },
+        variables:{
+          colorText: "#fff",
+          colorPrimary: "#0e78f9",
+          colorBackground: "#1c1f2e",
+          colorInputBackground: "#252a41",
+          colorInputText: "#fff"
+        }
+      }}
       >
-        {children}
-      </body>
+        <body
+          className={`font-poppins bg-dark-2 text-white antialiased`}
+        >
+          {children}
+          <Toaster />
+        </body>
+      </ClerkProvider>
     </html>
   );
 }

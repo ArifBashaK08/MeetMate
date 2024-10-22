@@ -20,7 +20,7 @@ export const sidebarLinks = [
         imgUrl: "/icons/Video.svg",
     },
     {
-        route: "/schedule",
+        route: "/new-meeting",
         label: "Schedule Meeting",
         imgUrl: "/icons/add-personal.svg",
     },

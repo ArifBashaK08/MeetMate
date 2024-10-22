@@ -1,3 +1,5 @@
 export {default as Navbar} from "./Navbar"
 export {default as Sidebar} from "./Sidebar"
 export {default as MobileNav} from "./MobileNav"
+export {default as MeetingTypes} from "./MeetingTypes"
+export {default as MeetingModal} from "./MeetingModal"

@@ -27,13 +27,15 @@ const MobileNav = () => {
                     className="border-none bg-dark-1"
                 >
                     <Link href="/" className="flex items-center gap-2">
-                        <Image src="/icons/logo.svg"
+                        <Image src="/images/logo.png"
                             alt="MeetUp"
                             width={32}
                             height={32}
                             className="max-sm:size-10"
                         />
-                        <p className="text-[26px] font-extrabold max-sm:hidden">MeetUp</p>
+                        <p className="text-lg font-extrabold text-blue-1">
+                            Virtual<br />Verse
+                        </p>
                     </Link>
 
                     <div className="mobile-menu">

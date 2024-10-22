@@ -1,22 +1,26 @@
 import Image from "next/image"
 import Link from "next/link"
 import MobileNav from "./MobileNav"
+import { UserButton, SignedIn } from "@clerk/nextjs";
 
 const Navbar = () => {
   return (
     <nav className="navbar-style">
       <Link href="/" className="flex items-center gap-2">
-        <Image src="/icons/logo.svg"
+        <Image src="/images/logo.png"
           alt="MeetUp"
-          width={32}
-          height={32}
+          width={70}
+          height={70}
           className="max-sm:size-10"
         />
-        <p className="text-[26px] font-extrabold max-sm:hidden">MeetUp</p>
+        <p className="text-lg font-extrabold  text-blue-1">Virtual<br/>Verse</p>
       </Link>
 
       <div className="flex-between gap-5">
-        {/* profile */}
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+        
         <MobileNav />
       </div>
 
