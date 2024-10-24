@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster"
+import "@stream-io/video-react-sdk/dist/css/styles.css"
 
 export const metadata: Metadata = {
   title: "Virtual Verse: Our Virtual Collaboration Hub",
   description: "Let's connect and collaborate effortlessly with our seamless video meeting app!",
+  icons:{
+    icon: "/images/logo.png"
+  }
 };
 
 export default function RootLayout({

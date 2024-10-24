@@ -75,10 +75,12 @@
 .cl-socialButtonsIconButton {
   border: 3px solid #565761;
 }
-.cl-internal-1j7ahlv{
+
+.cl-internal-1j7ahlv {
   width: 2.5rem;
   height: 2.5rem;
 }
+
 /* =============================== */
 
 @layer utilities {
@@ -115,6 +117,10 @@
   .home-card {
     @apply px-4 py-6 flex flex-col justify-between w-full xl:max-w-[270px] min-h-[260px] rounded-lg;
   }
+
+  .call-btn-style {
+    @apply cursor-pointer rounded-full bg-[#19232d] p-2 hover:bg-[#4c535b] duration-500;
+  }
 }
 
 /* animation */
@@ -124,6 +130,12 @@
   max-width: 350px;
   display: block;
   animation: show 0.7s forwards linear;
+}
+
+/* Mic & Cam dropdown */
+
+.str-video__menu-toggle-button {
+  background: transparent !important;
 }
 
 @keyframes show {

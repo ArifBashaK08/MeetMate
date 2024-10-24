@@ -1,6 +1,14 @@
 import { ReactNode } from "react"
 import {Navbar,Sidebar} from "@/components"
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Virtual Verse: Our Virtual Collaboration Hub",
+  description: "Let's connect and collaborate effortlessly with our seamless video meeting app!",
+  icons:{
+    icon: "/images/logo.png"
+  }
+};
 const HomeLayout = ({ children }: { children: ReactNode }) => {
     return (
         <main>

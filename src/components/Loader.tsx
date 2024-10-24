@@ -7,6 +7,7 @@ const Loader = () => {
                 alt="Loading"
                 width={50}
                 height={50}
+                priority
             />
         </div>
     )
