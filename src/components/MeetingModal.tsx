@@ -1,20 +1,16 @@
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { Button } from "./ui/button"
+import {
+    Dialog,
+    DialogContent,
+} from "@/components/ui/dialog"
 
 
 interface MeetingModalProps {
     className?: string,
     children?: string,
-    image: string,
+    image?: string,
     title: string,
     isOpen: boolean,
     handleClick?: () => void,

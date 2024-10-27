@@ -24,6 +24,7 @@
     "meet-up": "file:",
     "next": "14.2.15",
     "react": "^18",
+    "react-datepicker": "^7.5.0",
     "react-dom": "^18",
     "swr": "^2.2.5",
     "tailwind-merge": "^2.5.4",

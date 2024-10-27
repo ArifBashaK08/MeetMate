@@ -13,7 +13,7 @@ const Navbar = () => {
           height={70}
           className="max-sm:size-10"
         />
-        <p className="text-lg font-extrabold  text-blue-1">Virtual<br/>Verse</p>
+        <p className="text-lg font-extrabold  text-blue-1">Virtual<br/>Meet</p>
       </Link>
 
       <div className="flex-between gap-5">
