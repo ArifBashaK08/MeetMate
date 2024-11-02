@@ -23,8 +23,8 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
             case 'recordings':
                 return recordings;
             case 'upcoming': {
-                upcomingCalls = upcomingCalls?.sort((a, b) => a.state?.startsAt - b.state?.startsAt)
-                return upcomingCalls;
+                const sortedUpcomingCalls = upcomingCalls?.sort((a, b) => a.state?.startsAt - b.state?.startsAt)
+                return sortedUpcomingCalls;
             }
             default:
                 return []
