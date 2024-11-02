@@ -20,8 +20,8 @@ export const sidebarLinks = [
         imgUrl: "/icons/Video.svg",
     },
     {
-        route: "/new-meeting",
-        label: "Schedule Meeting",
+        route: "/personal-room",
+        label: "Personal Room",
         imgUrl: "/icons/add-personal.svg",
     },
 ]
@@ -29,7 +29,7 @@ export const sidebarLinks = [
 export const avatarImages = [
     "/images/avatar-1.jpeg",
     "/images/avatar-2.jpeg",
-    "/images/avatar-3.jpeg",
-    "/images/avatar-4.jpeg",
-    "/images/avatar-5.jpeg",
+    "/images/avatar-3.png",
+    "/images/avatar-4.png",
+    "/images/avatar-5.png",
 ]

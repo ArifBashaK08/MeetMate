@@ -14,11 +14,13 @@ import {
 import { useSearchParams } from "next/navigation"
 import EndCallButton from "./EndCallButton"
 import Loader from "./Loader"
+import { useRouter } from "next/router"
 
 type CallLayoutType = "grid" | "speaker-left" | "speaker-right"
 
 const MeetingRoom = () => {
 
+  const router = useRouter()
   const searchParams = useSearchParams()
   const isPersonalRoom = !!searchParams.get("personal")
 
@@ -53,7 +55,7 @@ const MeetingRoom = () => {
       </div>
 
       <div className="fixed bottom-0 flex-center gap-5 w-full flex-wrap">
-        <CallControls />
+        <CallControls onLeave={()=>router.push("/")} />
 
         <DropdownMenu>
           <div className="flex items-center">

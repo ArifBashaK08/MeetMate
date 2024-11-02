@@ -31,9 +31,14 @@ const MeetingCard = ({
   const { toast } = useToast();
 
   return (
-    <section className="flex min-h-[258px] w-full flex-col justify-between rounded-[14px] bg-dark-1 px-5 py-8 xl:max-w-[568px]">
+    <section className="flex min-h-[258px] w-full flex-col justify-between rounded-[14px] bg-dark-1 px-5 py-8">
       <article className="flex flex-col gap-5">
-        <Image src={icon} alt="upcoming" width={28} height={28} />
+        <div className="flex-between">
+          <Image src={icon} alt="upcoming" width={28} height={28} />
+          {isPreviousMeeting && (
+            <strong className="rounded-full glassmorphism w-fit px-2 py-1 text-sm">Completed</strong>
+          )}
+        </div>
         <div className="flex justify-between">
           <div className="flex flex-col gap-2">
             <h1 className="text-2xl font-bold">{title}</h1>
