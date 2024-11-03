@@ -1,8 +1,8 @@
 "use client"
 import { useUser } from "@clerk/nextjs"
-import { useToast } from "@/hooks/use-toast"
+import { useToast } from "@/components/ui/use-toast"
 import { Button } from "@/components/ui/button"
-import { useGetCallById } from "../../../../../hooks/useGetCallById"
+import { useGetCallById } from "../../../../hooks/useGetCallById"
 import { useStreamVideoClient } from "@stream-io/video-react-sdk"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
@@ -21,7 +21,7 @@ const MeetingRoom = () => {
   const { toast } = useToast()
   const { user } = useUser()
   const meetingId = user?.id
-  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}?personal=true`
+  const meetingLink = `${window.location.origin}/meeting/${meetingId}?personal=true`
   const { call } = useGetCallById(meetingId!)
   const client = useStreamVideoClient()
   const router = useRouter()
@@ -58,12 +58,12 @@ const MeetingRoom = () => {
             navigator.clipboard.writeText(meetingLink)
             toast({ title: "Link Copied!" })
           }}>
-            <Image src={"/icons/copy.svg"}
-                alt="copy"
-                width={20}
-                height={20}
-                priority
-            />
+          <Image src={"/icons/copy.svg"}
+            alt="copy"
+            width={20}
+            height={20}
+            priority
+          />
           Copy Link
         </Button>
       </div>

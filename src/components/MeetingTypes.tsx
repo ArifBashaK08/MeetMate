@@ -4,10 +4,8 @@ import { useRouter } from "next/navigation"
 import { MeetingModal, HomeCard, Loader } from "."
 import { useUser } from "@clerk/nextjs"
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk"
-import { useToast } from "@/hooks/use-toast"
-import { Textarea } from "./ui/textarea"
+import { useToast } from "@/components/ui/use-toast"
 import ReactDatePicker from "react-datepicker"
-import { Input } from "./ui/input"
 
 const MeetingTypes = () => {
 
@@ -63,7 +61,7 @@ const MeetingTypes = () => {
 
     if (!client || !user) return <Loader />;
 
-    const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.id}`
+    const meetingLink = `${window.location.origin}/meeting/${callDetails?.id}`
 
     const homeCardProps = [
         {
@@ -98,8 +96,8 @@ const MeetingTypes = () => {
 
     return (
         <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {homeCardProps.map(({ className, title, img, desc, handleClick }) => (
-                <HomeCard
+            {homeCardProps.map(({ className, title, img, desc, handleClick }, index) => (
+                <HomeCard key={index}
                     className={className}
                     title={title}
                     img={img}
@@ -119,8 +117,8 @@ const MeetingTypes = () => {
                         <label className="text-base font-normal leading-[22.4px] text-sky-2">
                             Add a description
                         </label>
-                        <Textarea
-                            className="input-class"
+                        <textarea rows={2}
+                            className="input-class min-h-4"
                             onChange={(e) =>
                                 setValues({ ...values, description: e.target.value })
                             }
@@ -171,7 +169,7 @@ const MeetingTypes = () => {
                 buttonText={"Join Meeting"}
                 handleClick={() => router.push(values.link)}
             >
-                <Input 
+                <input 
                 placeholder="Meeting link..."
                 className="input-class" 
                 onChange={(e) => setValues({...values, link: e.target.value})}

@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useUser } from "@clerk/nextjs"
 import { MeetingRoom, MeetingSetup } from "@/components"
 import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk"
-import { useGetCallById } from "../../../../../hooks/useGetCallById"
+import { useGetCallById } from "../../../../hooks/useGetCallById"
 import Loader from "@/components/Loader"
 
 const Meeting = ({ params: { id } }: { params: { id: string } }) => {

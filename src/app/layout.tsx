@@ -38,8 +38,8 @@ export default function RootLayout({
         <body
           className={`font-poppins bg-dark-2 text-white antialiased`}
         >
-          {children}
           <Toaster />
+          {children}
         </body>
       </ClerkProvider>
     </html>

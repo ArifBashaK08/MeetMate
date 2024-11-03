@@ -1,4 +1,3 @@
-//@ts-nocheck
 
 "use client"
 
@@ -6,8 +5,8 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { useGetCalls } from "@/hooks/useGetCalls"
 import { Call, CallRecording } from '@stream-io/video-react-sdk';
-import { MeetingCard, Loader } from "./";
-import { useToast } from "@/hooks/use-toast";
+import { MeetingCard, Loader } from ".";
+import { useToast } from "@/components/ui/use-toast";
 import { displayFormatDate } from "@/lib/utils";
 
 const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
@@ -37,8 +36,8 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
                 const callData = await Promise.all(callRecordings?.map((meeting) => meeting.queryRecordings()))
 
                 const recordings = callData
-                    .filter(call => call.recordings.length > 0)
-                    .flatMap(call => call.recordings)
+                    .filter(call => call?.recordings?.length > 0)
+                    .flatMap(call => call?.recordings)
 
                 setRecordings(recordings)
             } catch (error) {
@@ -71,9 +70,9 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
     return (
         <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
             {calls && calls.length > 0 ?
-                calls.map((meeting: Call | CallRecording) => (
+                calls.map((meeting: Call | CallRecording, index) => (
                     <MeetingCard
-                        key={(meeting as Call).id}
+                        key={(meeting as Call).id || (meeting as CallRecording).url || index}
                         icon={
                             type === 'ended'
                                 ? '/icons/previous.svg'
@@ -96,7 +95,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
                         link={
                             type === 'recordings'
                                 ? (meeting as CallRecording).url
-                                : `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${(meeting as Call).id}`
+                                : `${window.location.origin}/meeting/${(meeting as Call).id}`
                         }
                         buttonIcon1={type === 'recordings' && '/icons/play.svg'}
                         buttonText={type === 'recordings' ? 'Play' : 'Join'}
