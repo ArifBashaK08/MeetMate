@@ -22,8 +22,8 @@ export const displayFormatDate = (date: Date | string | null) => {
       year: "numeric"
   };
 
-  const timePart = dateObj.toLocaleTimeString("en-US", timeOptions);
-  const datePart = dateObj.toLocaleDateString("en-US", dateOptions);
+  const timePart = dateObj.toLocaleTimeString("en-IN", timeOptions);
+  const datePart = dateObj.toLocaleDateString("en-IN", dateOptions);
 
   return `${timePart} - ${datePart}`;
 };
