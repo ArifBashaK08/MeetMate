@@ -11,10 +11,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { useSearchParams } from "next/navigation"
+import { useSearchParams, useRouter } from "next/navigation"
 import EndCallButton from "./EndCallButton"
 import Loader from "./Loader"
-import { useRouter } from "next/router"
 
 type CallLayoutType = "grid" | "speaker-left" | "speaker-right"
 
